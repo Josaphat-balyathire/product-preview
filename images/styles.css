@@ -183,7 +183,7 @@ button:is(:hover, :focus) {
 
 .button[data-icon="shoping-card"]::before {
     content: "";
-    background-image: url('/images/icon-cart.svg');
+    background-image: url('./images/icon-cart.svg');
     width: 15px;
     height: 16px;
 }
