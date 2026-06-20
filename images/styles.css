@@ -1,0 +1,190 @@
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+:root {
+    --primary-color-200-a:  hsl(158, 36%, 37%);
+    --primary-color-200-b: hsla(158, 36%, 37%, 0.643);
+    --primary-color-400-a: hsl(158, 42%, 18%);
+    --primary-color-400-b: hsla(158, 41%, 18%, 0.649);
+
+    --neutral-color-black:  hsl(212, 21%, 14%);
+    --neutral-color-white:  hsl(0, 0%, 100%);
+    --neutral-color-cream:  hsl(30, 38%, 92%);
+
+    /* fonts */
+
+    --font-weight-neutral: 600;
+    --font-weight-bold: bold;
+    --font-family: 'Fraunces';
+
+    /* ather custum properties */
+
+    --padding-general: 1rem;
+    --letter-spacing: 5px;
+    --grid-layout: grid;
+    --grid-templat-column: 1fr 1fr;
+    --border-radius: 0.5rem;
+
+
+}
+
+body {
+  /* 4. Increase line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+h1, h2 {
+    line-height: 1.1;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/* main styling  */
+
+body {
+    min-height: 100vh;
+    font-family: var(--font-family);
+    background-color: var(--neutral-color-cream);
+    display: var(--grid-layout);
+    place-items: center;
+    place-content: center;
+    padding: var(--padding-general);
+    line-height: 1.5;
+    color: var(--neutral-color-black);
+}
+
+/* utilitities */
+
+.flex-group {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.sr-only {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* product */
+
+.product {
+    --content-spacing: 1rem;
+    display: var(--grid-layout);
+    background-color: var(--neutral-color-white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin: auto;
+    display: var(--grid-layout);
+    border-radius: var(--border-radius);
+    align-items: center;
+    transition: all 0.7s ease;
+    max-width: 600px;
+}
+
+@media screen and (min-width: 600px) {
+    .product {
+        grid-template-columns: var(--grid-templat-column);
+    }
+}
+
+.product__content {
+    display: var(--grid-layout);
+    gap: var(--content-spacing);
+    padding: var(--padding-general);
+    font-size: 0.895rem;
+}
+
+.product__category {
+    font-size: 0.876rem;
+    text-transform: uppercase;
+    color: var(--neutral-color-black);
+    letter-spacing: var(--letter-spacing);
+}
+.product__title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.actual-price {
+    color: var(--primary-color-200-a);
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+
+}
+
+.button {
+    padding: 0.5em 1.5em;
+    display: inline-flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    border-radius: var(--border-radius);
+    border: 0;
+    background-color: var(--primary-color-200-a);
+    color: var(--neutral-color-white);
+    font-size: 0.989rem;
+
+}
+
+button:is(:hover, :focus) {
+    background-color: var(--primary-color-400-a);
+}
+
+.button[data-icon="shoping-card"]::before {
+    content: "";
+    background-image: url('/images/icon-cart.svg');
+    width: 15px;
+    height: 16px;
+}
+
